@@ -1,0 +1,53 @@
+<%= form_for(@amber_alert) do |f| %>
+  <% if @amber_alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@amber_alert.errors.count, "error") %> prohibited this amber_alert from being saved:</h2>
+
+      <ul>
+      <% @amber_alert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :race %><br />
+    <%= f.text_field :race %>
+  </div>
+  <div class="field">
+    <%= f.label :hairColor %><br />
+    <%= f.text_field :hairColor %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :lastSeenLocation %><br />
+    <%= f.text_area :lastSeenLocation %>
+  </div>
+  <div class="field">
+    <%= f.label :lastSeenTime %><br />
+    <%= f.time_select :lastSeenTime %>
+  </div>
+  <div class="field">
+    <%= f.label :submitTime %><br />
+    <%= f.time_select :submitTime %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

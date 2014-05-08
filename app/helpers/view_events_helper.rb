@@ -1,0 +1,2 @@
+module ViewEventsHelper
+end

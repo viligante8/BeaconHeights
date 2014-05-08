@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @amber_alert.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @amber_alert.age %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @amber_alert.sex %>
+</p>
+
+<p>
+  <b>Race:</b>
+  <%= @amber_alert.race %>
+</p>
+
+<p>
+  <b>Hair Color:</b>
+  <%= @amber_alert.hairColor %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @amber_alert.description %>
+</p>
+
+<p>
+  <b>Last Seen Location:</b>
+  <%= @amber_alert.lastSeenLocation %>
+</p>
+
+<p>
+  <b>Last Seen Time:</b>
+  <%= @amber_alert.lastSeenTime.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <b>Submit Time:</b>
+  <%= @amber_alert.submitTime.strftime("%I:%M %p") %>
+</p>
+
+
+<%= link_to 'Edit', edit_amber_alert_path(@amber_alert) %> |
+<%= link_to 'Back', amber_alerts_path %>

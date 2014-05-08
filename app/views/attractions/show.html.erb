@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+
+<p class="image">
+  <%= image_tag(@attraction.photo) %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @attraction.attraction_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @attraction.description %>
+</p>
+
+<p>
+  <b>Minimum Height:</b>
+  <%= @attraction.min_height %> inches
+</p>
+
+<p>
+  <b>FastPass Available?:</b>
+  <% if @attraction.is_fastpass == 1 %>
+    <td>Yes</td>
+  <% else %>
+    <td>No</td>
+  <% end %>
+</p>
+
+<p>
+  <b>Fee:</b>
+  <% if @attraction.fee.nil? || @attraction.fee==0 %>
+    $0.00
+  <% else %>
+    <%= number_to_currency(@attraction.fee) %>
+  <% end %>
+</p>
+
+<p>
+  <% if @attraction.is_fastpass==1 %>
+    <% session[:att_id] = @attraction.id %>
+    <%= link_to 'FastPasses for this Attraction', att_fastpass_path %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
+<%= link_to 'Back', attractions_path %>

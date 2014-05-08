@@ -1,0 +1,2 @@
+module AttFastpassHelper
+end

@@ -1,0 +1,2 @@
+module ViewFastpassesHelper
+end

@@ -1,0 +1,17 @@
+  <%= form_tag do %>
+      <h1>Please Log In</h1>
+
+      <div>
+        <label for="email">E-Mail:</label>
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+      <br />
+      <div>
+        <%= submit_tag "Login" %>
+      </div>
+  <% end %>

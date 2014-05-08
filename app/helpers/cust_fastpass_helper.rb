@@ -1,0 +1,2 @@
+module CustFastpassHelper
+end

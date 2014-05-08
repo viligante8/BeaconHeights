@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  event_date: 2010-10-06
+  event_time: 2010-10-06 19:51:19
+  arena: MyString
+  performers: MyString
+  description: MyString
+  event_type: MyString
+
+two:
+  name: MyString
+  event_date: 2010-10-06
+  event_time: 2010-10-06 19:51:19
+  arena: MyString
+  performers: MyString
+  description: MyString
+  event_type: MyString

@@ -1,0 +1,22 @@
+<h1>Registered Customers</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>E-Mail</th>
+    <th>Phone</th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.name %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.phone %></td>
+    <td><%= link_to 'Delete', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '>> New customer', new_customer_path %>

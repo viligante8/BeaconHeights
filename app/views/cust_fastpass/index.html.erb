@@ -1,0 +1,21 @@
+<h1>FastPasses for <%= @customer.name %></h1>
+
+<p>Below are your <b>upcoming and unused</b> FastPasses for today, <%= Time.now.strftime("%A, %B %d, %Y") %>.<br />
+  To use these, please go to the attraction listed and speak with the FastPass attendant.
+</p>
+
+<table class="table">
+  <tr>
+    <th>Ticket Number</th>
+    <th>Attraction</th>
+    <th>Hour</th>
+  </tr>
+
+<% @custfastpasses.each do |fp| %>
+  <tr>
+    <td><%= fp.id %></td>
+    <td><%= Attraction.find(fp.attractions_id).name %></td>
+    <td><%= Time.utc(2010, "jan", 1, fp.hour, 0, 0).strftime("%I:%M %p") %></td>
+  </tr>
+<% end %>
+</table>

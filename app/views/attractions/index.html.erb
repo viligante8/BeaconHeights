@@ -1,0 +1,45 @@
+<h1>Attractions</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Minimum Height</th>
+    <th>FastPass?</th>
+    <th>Fee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attractions.each do |attraction| %>
+  <tr>
+    <td><%= attraction.name %></td>
+    <td><%= attraction.attraction_type %></td>
+    <td>
+      <% if attraction.min_height.nil? || attraction.min_height==0 %>
+        NONE
+      <% else %>
+        <%= attraction.min_height %> inches
+      <% end %></td>
+    <% if attraction.is_fastpass == 1 %>
+      <td>Yes</td>
+    <% else %>
+      <td>No</td>
+    <% end %>
+    <td>
+      <% if attraction.fee.nil? || attraction.fee==0 %>
+        $0.00
+      <% else %>
+        <%= number_to_currency(attraction.fee) %>
+      <% end %></td>
+    <td><%= link_to 'View', attraction %></td>
+    <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+    <td><%= link_to 'Delete', attraction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '>> New Attraction', new_attraction_path %>

@@ -1,0 +1,28 @@
+<h1>List of Available Attractions:</h1>
+<% @attractions.each do |attraction| %>
+  <div class="entry"><br>
+    <%= image_tag(attraction.photo) %>
+    
+    <h3>
+      <%= attraction.name %>
+    </h3>
+    <b>Type:</b> <%= attraction.attraction_type %><br />
+    <b>Description:</b> <%= sanitize attraction.description %><br /><br />
+    
+    <% unless attraction.min_height.nil? || attraction.min_height == 0 %>
+      <b>Minimum Height:</b> <%= (attraction.min_height / 12) %> feet | 
+    <% end %>
+    <% unless attraction.fee.nil? || attraction.fee==0 %>
+      <b>Fee:</b> <%= number_to_currency(attraction.fee) %> 
+    <% else %>
+      <b>Fee:</b> FREE 
+    <% end %>
+    <% session[:counter] = 1 %>
+    <% if attraction.is_fastpass == 1 %>
+      | <b><%= link_to 'Reserve FastPass', submit_fast_pass_path( :attraction_id => attraction ) %></b>
+      
+    <% end %>
+    <br />
+    <br />
+  </div>
+<% end %>

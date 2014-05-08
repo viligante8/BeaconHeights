@@ -1,0 +1,2 @@
+module SessionsCustHelper
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  attractions_id: 1
+  hour: 1
+  cust_id: MyString
+
+two:
+  attractions_id: 1
+  hour: 1
+  cust_id: MyString

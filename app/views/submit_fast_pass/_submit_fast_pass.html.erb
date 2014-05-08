@@ -1,0 +1,13 @@
+<% form_tag (:action => "add_pass") do %>
+
+  <%= pluralize(session[:requested], 'FastPass') %> requested. <br /><br />
+  <b>Available Times:</b>
+  
+  <select name="hour">
+    <% session[:avail].each do |t| %>
+      <option value="<%= t.strftime("%H") %>"> <%= t.strftime("%I:%M %p") %>
+    <% end %>
+  </select>
+  
+  <%= submit_tag "Reserve FastPass" %>
+<% end %>

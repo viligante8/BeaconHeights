@@ -1,0 +1,33 @@
+<h1>Upcoming Events</h1>
+
+<table class = "table">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Arena</th>
+    <th>Performers</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.event_date.strftime("%a, %m/%d/%y") %></td>
+    <td><%= event.event_time.strftime("%I:%M %p") %></td>
+    <td><%= event.arena %></td>
+    <td><%= event.performers %></td>
+    <td><%= event.event_type %></td>
+    <td><%= link_to 'View', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Delete', event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '>> New Event', new_event_path %>

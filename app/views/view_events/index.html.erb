@@ -1,0 +1,23 @@
+<h1>List of Upcoming Events:</h1>
+<% @events.each do |event| %>
+  <div class="entry">
+    <h3>
+      <%= event.name %>
+    </h3>
+    <b>Performers:</b> <%= event.performers %><br /><br />
+    <b>Arena:</b> <%= event.arena %><br/>
+    <b>Type:</b> <%= event.event_type %><br /><br />
+    
+    <% if event.frequency.nil? %>
+      <b>Date: </b><%= event.event_date.strftime("%A, %B %d, %Y") %><br />
+    <% else %>
+      <b>Frequency:</b> <%= event.frequency %><br />
+      <% if event.frequency == "Weekly" %>
+        <b>Day: </b><%= event.event_date.strftime("%A") %>s<br />
+      <% end %>
+    <% end %>
+    
+    <b>Time: </b><%= event.event_time.strftime("%I:%M %p") %><br /><br />
+    <b>Description:</b> <%= sanitize event.description %><br /><br />
+  </div>
+<% end %>

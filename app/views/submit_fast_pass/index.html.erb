@@ -1,0 +1,12 @@
+<h1>Reserve Your FastPass</h1>
+
+<h3>FastPass requested for <b><%= @attraction.name %></b>.</h3>
+
+<% if session[:counter]==1 %>
+  <%= render 'requested' %>
+<% end %>
+
+
+<% unless session[:avail].nil? %>
+  <%= render 'submit_fast_pass' %>
+<% end %>

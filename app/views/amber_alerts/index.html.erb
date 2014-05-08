@@ -1,0 +1,33 @@
+<h1>Amber Alerts (Missing Children)</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Sex</th>
+    <th>Race</th>
+    <th>Hair Color</th>
+    <th>Submitted</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @amber_alerts.each do |amber_alert| %>
+  <tr>
+    <td><%= amber_alert.name %></td>
+    <td><%= amber_alert.age %></td>
+    <td><%= amber_alert.sex %></td>
+    <td><%= amber_alert.race %></td>
+    <td><%= amber_alert.hairColor %></td>
+    <td><%= amber_alert.submitTime.strftime("%I:%M %p") %></td>
+    <td><%= link_to 'View', amber_alert %></td>
+    <td><%= link_to 'Edit', edit_amber_alert_path(amber_alert) %></td>
+    <td><%= link_to 'Delete', amber_alert, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '>> New Amber Alert', new_amber_alert_path %>

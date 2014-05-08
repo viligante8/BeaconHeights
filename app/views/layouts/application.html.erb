@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[ beacon heights ]</title>
+  <%= stylesheet_link_tag "scaffold" %>
+  <%= stylesheet_link_tag "themepark" , :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+    
+    <div id="container">
+      
+      <div id="header">
+        <%= image_tag("BeaconHeightsTitle.png" ) %>
+      </div>
+      
+      <div id="navigation"><b>
+        <a href="/">Home</a> | 
+        <%= link_to 'Attractions', view_attractions_path %> | 
+        <%= link_to 'Shows and Events', view_events_path %> | 
+        <%= link_to 'FastPass and Wait Times', view_fastpasses_path %> | 
+        <%= link_to 'AMBER ALERTS', view_amber_alerts_path %> | 
+        <% if session[:customer_id] %>
+          <%= link_to 'My FastPasses', cust_fastpass_path %> | 
+          <%= link_to 'Logout', logout_path, :method => :delete %></b>
+          <%= hidden_field(:cust_id, session[:customer_id]) %>
+          <% @cust = Customer.find(session[:customer_id]) %>
+          <%= hidden_field(:cust_name, @cust.name) %>
+          <%= hidden_field(:cust_phone, @cust.phone) %>
+        <% else %>
+          <%= link_to 'Customer Login', login_path %> | 
+          <%= link_to 'New Customer', new_customer_path %></b>
+        <% end %>
+      </div>
+      
+      <div id="contentContainer">
+        
+        <div id="contentLeft"><%= yield %></div>
+        <div id="contentRight">
+            <div class="entry">
+              <h3>Park Hours</h3>
+              We open at 7:00 AM everyday and close at 9:00 PM.<br><br>
+            </div>
+            
+            <div class="entry">
+              <h3>Upcoming Events</h3>
+              
+              <% @events.each do |event| %>
+                <b><%= event.name %></b><br>
+                <%= event.event_date.strftime("%A, %B %d, %Y") %><br><br>
+              <% end %>
+            </div>
+            
+            <div class="entry">
+              <h3>Administration<h3></h3>
+              <% if session[:user_id] %>
+                <%= link_to 'Reserved FastPasses', fastpasses_path %><br />
+                <%= link_to 'Add/Edit Events', events_path %><br />
+                <%= link_to 'Add/Edit Attractions', attractions_path %><br />
+                <%= link_to 'Add/Edit Amber Alerts', amber_alerts_path %><br />
+                <%= link_to 'Customers', customers_path %><br />
+                <%= link_to 'Administrative Users', users_path %><br /><br />
+                <%= link_to 'Logout', logout_admin_path, :method => :delete   %><br /><br />
+              <% end %>
+              
+              <% if session[:user_id].nil? %>
+                <%= link_to 'Admin Login', login_admin_path %><br /><br />
+              <% end %>
+            </div>
+        </div>
+        
+      </div>
+      <div id="footer">...</div>
+    </div>
+    
+</body>
+</html>

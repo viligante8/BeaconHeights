@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  age: 1
+  sex: MyString
+  race: MyString
+  hairColor: MyString
+  description: MyText
+  lastSeenLocation: MyText
+  lastSeenTime: 2010-10-06 21:26:03
+  submitTime: 2010-10-06 21:26:03
+  photo: 
+
+two:
+  name: MyString
+  age: 1
+  sex: MyString
+  race: MyString
+  hairColor: MyString
+  description: MyText
+  lastSeenLocation: MyText
+  lastSeenTime: 2010-10-06 21:26:03
+  submitTime: 2010-10-06 21:26:03
+  photo: 

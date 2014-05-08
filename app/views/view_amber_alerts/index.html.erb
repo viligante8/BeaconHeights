@@ -1,0 +1,22 @@
+<h1>MISSING CHILDREN</h1>
+The children below were reported missing at our park today.
+If you know anything about their disappearance, please call (555) 555-5555 immediately.
+<br><br>
+<% @amber_alerts.each do |amber_alert| %>
+  <div class="entry">
+    <h3>
+      <%= amber_alert.name %>
+    </h3>
+    <b>Age:</b> <%= amber_alert.age %> | 
+    <b>Sex:</b> <%= amber_alert.sex %> | 
+    <b>Race:</b> <%= amber_alert.race %> | 
+    <b>Hair Color:</b> <%= amber_alert.hairColor %><br /><br />
+    
+    <b>Description:</b> <%= sanitize amber_alert.description %><br /><br />
+    
+    <b>Last seen:</b> <%= amber_alert.lastSeenLocation %>
+    at <%= amber_alert.lastSeenTime.strftime("%I:%M %p") %><br /><br />
+    
+    <b>Alert Submitted at:</b> <%= amber_alert.submitTime.strftime("%I:%M %p") %><br /><br />
+  </div>
+<% end %>

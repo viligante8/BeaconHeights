@@ -1,0 +1,2 @@
+module SubmitFastPassHelper
+end

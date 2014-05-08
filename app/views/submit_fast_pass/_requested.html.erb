@@ -1,0 +1,14 @@
+<% form_tag (:action => "avail_times") do %>
+
+  How many are in your party? 
+  
+  <select name="requested">
+    <% for i in 1..(@attraction.max_tix_hour.to_i) %>
+      <option value="<%= i %>"><%= i %>
+    <% end %>
+  </select>
+  
+  <!--<input name="requested" type="number" />-->
+  
+  <%= submit_tag "Load Available Times" %>
+<% end %>

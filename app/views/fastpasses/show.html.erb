@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Attraction:</b>
+  <%= Attraction.find(@fastpass.attractions_id).name %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= Customer.find(@fastpass.cust_id).name %>
+</p>
+
+<p>
+  <b>Hour:</b>
+  <%= Time.utc(2010, "jan", 1, @fastpass.hour, 0, 0).strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <% if @fastpass.is_used==1 %>
+    <b>Used?</b>
+    YES
+  <% else %>
+    <% if Time.now.strftime("%H").to_i==@fastpass.hour %>
+      <% form_tag (:action => "use") do %>
+        <% session[:fp_id] = @fastpass.id %>
+        <%= submit_tag "USE" %>
+      <% end %>
+    <% else %>
+      <b>This FastPass cannot be used now. The time is now <%= Time.now.strftime("%I:%M %p")%>.</b>
+    <% end %>
+  <% end %>
+</p>
+
+
+<br /><%= link_to 'Back', fastpasses_path %>
